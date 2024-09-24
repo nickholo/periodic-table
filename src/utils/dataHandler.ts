@@ -1,5 +1,5 @@
-import Element from './Element';
-import elementsData from './assets/elements.json';
+import Element from './ChemElement';
+import elementsData from '../assets/elements.json';
 
 export const processElements = (): Element[] => {
 	return elementsData.map((elementData) => {

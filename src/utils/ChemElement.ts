@@ -1,4 +1,4 @@
-export class Element {
+export default class ChemElement {
 	atomicNumber: number;
 	symbol: string;
 	name: string;
@@ -68,5 +68,3 @@ export class Element {
 		this.group = group;
 	}
 }
-
-export default Element;
