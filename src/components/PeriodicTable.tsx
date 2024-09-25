@@ -1,31 +1,26 @@
-import ElementBox from './ElementBox';
-import ElementCard from './ElementCard';
-import { useState } from 'react';
-import { processElements } from '../utils/dataHandler';
-import ChemElement from '../utils/ChemElement';
+import { ElementBox, ElementCard } from './index';
+import { useElementData } from '../hooks/useElementData';
+import ChemElement from '../models/ChemElement';
 
 const PeriodicTable = () => {
-	const elements = processElements();
-	const [hoveredElement, setHoveredElement] = useState<ChemElement | null>(
-		null
-	);
+	const { elements, selectedElement, setSelectedElement } = useElementData();
 
-	const handleHover = (element: ChemElement | null) => {
-		setHoveredElement(element);
+	const handleClick = (element: ChemElement | null) => {
+		setSelectedElement(element);
 	};
 
 	return (
 		<div className='grid grid-cols-6 grid-rows-6'>
+			{selectedElement && <ElementCard element={selectedElement} />}
 			<div>
 				{elements.map((element) => (
 					<ElementBox
 						key={element.atomicNumber}
 						element={element}
-						onHover={handleHover}
+						onClick={handleClick}
 					/>
 				))}
 			</div>
-			{hoveredElement && <ElementCard element={hoveredElement} />}
 		</div>
 	);
 };

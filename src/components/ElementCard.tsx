@@ -1,4 +1,4 @@
-import ChemElement from '../utils/ChemElement';
+import ChemElement from '../models/ChemElement';
 
 interface ElementCardProps {
 	element: ChemElement | null;

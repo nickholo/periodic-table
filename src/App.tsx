@@ -1,5 +1,4 @@
-import { Header } from './components';
-import PeriodicTable from './components/PeriodicTable';
+import { Header, PeriodicTable } from './components';
 import './index.css';
 
 const App = () => {
