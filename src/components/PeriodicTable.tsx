@@ -1,23 +1,161 @@
-import { ElementBox, ElementCard } from './index';
-import { useElementData } from '../hooks/useElementData';
-import ChemElement from '../models/ChemElement';
+import { ElementBox } from './index';
+import { ChemElement, PeriodicTableProps } from '../models/ChemElement';
+import { chemElementsList } from '../data/elementData';
 
-const PeriodicTable = () => {
-	const { elements, selectedElement, setSelectedElement } = useElementData();
-
-	const handleClick = (element: ChemElement | null) => {
-		setSelectedElement(element);
-	};
-
+const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 	return (
-		<div className='grid grid-cols-6 grid-rows-6'>
-			{selectedElement && <ElementCard element={selectedElement} />}
-			<div>
-				{elements.map((element) => (
+		<div
+			id='parent'
+			className='flex justify-center items-center align-middle self-center my-10'>
+			<div
+				id='div1'
+				className='h-max w-max col-start-1 col-end-2'>
+				<ElementBox
+					key={chemElementsList[0].atomicNumber}
+					{...chemElementsList[0]}
+					onClick={() => setSelectedElement(chemElementsList[0])}
+				/>
+			</div>
+			<div
+				id='div2'
+				className='h-max w-max col-start-[18] col-end-[19]'>
+				<ElementBox
+					key={chemElementsList[1].atomicNumber}
+					{...chemElementsList[1]}
+					onClick={() => setSelectedElement(chemElementsList[1])}
+				/>
+			</div>
+			<div
+				id='div3'
+				className='h-max w-max flex col-start-1 col-end-3'>
+				{chemElementsList.slice(2, 4).map((element: ChemElement) => (
 					<ElementBox
 						key={element.atomicNumber}
-						element={element}
-						onClick={handleClick}
+						{...element}
+						onClick={() => setSelectedElement(element)}
+					/>
+				))}
+			</div>
+			<div
+				id='div4'
+				className='h-max w-max flex col-start-13 col-end-[19]'>
+				{chemElementsList.slice(4, 10).map((element: ChemElement) => (
+					<ElementBox
+						key={element.atomicNumber}
+						{...element}
+						onClick={() => setSelectedElement(element)}
+					/>
+				))}
+			</div>
+			<div
+				id='div5'
+				className='h-max w-max flex col-start-1 col-end-3'>
+				{chemElementsList.slice(10, 12).map((element: ChemElement) => (
+					<ElementBox
+						key={element.atomicNumber}
+						{...element}
+						onClick={() => setSelectedElement(element)}
+					/>
+				))}
+			</div>
+			<div
+				id='div6'
+				className='h-max w-max flex col-start-13 col-end-[19]'>
+				{chemElementsList.slice(12, 18).map((element: ChemElement) => (
+					<ElementBox
+						key={element.atomicNumber}
+						{...element}
+						onClick={() => setSelectedElement(element)}
+					/>
+				))}
+			</div>
+			<div
+				id='div7'
+				className='h-max w-max flex col-start-1 col-end-[19]'>
+				{chemElementsList.slice(18, 36).map((element: ChemElement) => (
+					<ElementBox
+						key={element.atomicNumber}
+						{...element}
+						onClick={() => setSelectedElement(element)}
+					/>
+				))}
+			</div>
+			<div
+				id='div8'
+				className='h-max w-max flex col-start-1 col-end-[19]'>
+				{chemElementsList.slice(36, 54).map((element: ChemElement) => (
+					<ElementBox
+						key={element.atomicNumber}
+						{...element}
+						onClick={() => setSelectedElement(element)}
+					/>
+				))}
+			</div>
+			<div
+				id='div9'
+				className='h-max w-max flex col-start-1 col-end-[19] row-start-6'>
+				{chemElementsList.slice(54, 56).map((element: ChemElement) => (
+					<ElementBox
+						key={element.atomicNumber}
+						{...element}
+						onClick={() => setSelectedElement(element)}
+					/>
+				))}
+			</div>
+			<div
+				id='div10'
+				className='h-max w-max flex col-start-4 col-end-[19] row-start-6'>
+				{chemElementsList.slice(71, 86).map((element: ChemElement) => (
+					<ElementBox
+						key={element.atomicNumber}
+						{...element}
+						onClick={() => setSelectedElement(element)}
+					/>
+				))}
+			</div>
+			<div
+				id='div11'
+				className='h-max w-max flex col-start-1 col-end-3'>
+				{chemElementsList.slice(86, 88).map((element: ChemElement) => (
+					<ElementBox
+						key={element.atomicNumber}
+						{...element}
+						onClick={() => setSelectedElement(element)}
+					/>
+				))}
+			</div>
+			<div
+				id='div12'
+				className='h-max w-max flex col-start-4 col-end-[19]'>
+				{chemElementsList
+					.slice(103, 118)
+					.map((element: ChemElement) => (
+						<ElementBox
+							key={element.atomicNumber}
+							{...element}
+							onClick={() => setSelectedElement(element)}
+						/>
+					))}
+			</div>
+			<div
+				id='div13'
+				className='h-max w-max flex col-start-4 col-end-[19]'>
+				{chemElementsList.slice(56, 71).map((element: ChemElement) => (
+					<ElementBox
+						key={element.atomicNumber}
+						{...element}
+						onClick={() => setSelectedElement(element)}
+					/>
+				))}
+			</div>
+			<div
+				id='div14'
+				className='h-max w-max flex col-start-4 col-end-[19]'>
+				{chemElementsList.slice(88, 103).map((element: ChemElement) => (
+					<ElementBox
+						key={element.atomicNumber}
+						{...element}
+						onClick={() => setSelectedElement(element)}
 					/>
 				))}
 			</div>
