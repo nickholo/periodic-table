@@ -1,37 +1,12 @@
-import { ChemElement } from '../models/ChemElement';
+import { ChemElement } from '../models/interfaces';
+import SetElementColor from '../assets/helpers/setElementColor';
 
 const ElementBox = (element: ChemElement & { onClick: () => void }) => {
-	let color = '';
-
-	if (element.series === 'reactive nonmetals') {
-		color = 'bg-green-300';
-	} else if (element.series === 'noble gases') {
-		color = 'bg-purple-300';
-	} else if (element.series === 'alkali metals') {
-		color = 'bg-orange-300';
-	} else if (element.series === 'alkaline earth metals') {
-		color = 'bg-yellow-300';
-	} else if (element.series === 'transition metals') {
-		color = 'bg-red-300';
-	} else if (element.series === 'post-transition metals') {
-		color = 'bg-blue-300';
-	} else if (element.series === 'metalloids') {
-		color = 'bg-cyan-300';
-	} else if (element.series === 'lanthanoids') {
-		color = 'bg-amber-300';
-	} else if (element.series === 'actinoids') {
-		color = 'bg-pink-300';
-	} else {
-		color = 'bg-gray-200';
-	}
-
 	return (
 		<div
-			className={
-				'border border-gray-300 p-2 w-16 h-16 flex flex-col justify-center items-center' +
-				' ' +
-				color
-			}
+			className={`p-2 my-4 w-16 h-16 flex flex-col justify-center items-center ${SetElementColor(
+				element
+			)}`}
 			onClick={element.onClick}>
 			{
 				<h2 className='text-xl font-bold'>{element.symbol}</h2>

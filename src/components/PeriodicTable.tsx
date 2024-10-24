@@ -1,5 +1,5 @@
 import { ElementBox } from './index';
-import { ChemElement, PeriodicTableProps } from '../models/ChemElement';
+import { ChemElement, PeriodicTableProps } from '../models/interfaces';
 import { chemElementsList } from '../data/elementData';
 
 const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {

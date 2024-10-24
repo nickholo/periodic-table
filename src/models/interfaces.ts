@@ -23,6 +23,25 @@ export interface ChemElement {
 	series?: string;
 }
 
+export interface Compound {
+	molecularFormula: string;
+	molecularWeight: number;
+	title: string;
+	charge: number;
+}
+
 export interface PeriodicTableProps {
 	setSelectedElement: (element: ChemElement) => void;
+	buildModeActive: boolean;
+}
+
+export interface DisplayCardProps {
+	element: ChemElement;
+	compound: Compound;
+	buildModeActive: boolean;
+}
+
+export interface ButtonProps {
+	toggleBuildMode: () => void;
+	buildModeActive: boolean;
 }
