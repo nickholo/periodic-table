@@ -2,7 +2,8 @@ import { Header, PeriodicTable, DisplayCard } from './components';
 import { useState } from 'react';
 import { ChemElement } from './models/interfaces';
 import { chemElementsList } from './data/elementData';
-import BuildModeButton from './components/BuildModeButton';
+import BuildModeButton from './components/CompoundToggle';
+import EquationDisplay from './components/EquationDisplay';
 import './index.css';
 
 const App = () => {
@@ -10,12 +11,9 @@ const App = () => {
 		chemElementsList[0]
 	);
 
-	const [buildModeActive, setBuildModeActive] = useState(false);
+	const [selectedElements, setSelectedElements] = useState<string[]>([]);
 
-	const toggleBuildMode = () => {
-		setBuildModeActive(!buildModeActive);
-		alert('Build Mode Active: ' + !buildModeActive);
-	};
+	const [compoundModeActive, setCompoundModeActive] = useState(false);
 
 	let compound = {
 		molecularFormula: 'H2O',
@@ -28,20 +26,27 @@ const App = () => {
 		<div>
 			<Header />
 			<main className='flex w-screen justify-evenly align-middle'>
+				<EquationDisplay
+					selectedElements={selectedElements}
+					compoundModeActive={compoundModeActive}
+				/>
 				<div>
 					<DisplayCard
 						element={selectedElement}
-						buildModeActive={buildModeActive}
+						compoundModeActive={compoundModeActive}
 						compound={compound}
 					/>
 					<BuildModeButton
-						toggleBuildMode={toggleBuildMode}
-						buildModeActive={buildModeActive}
+						setCompoundModeActive={setCompoundModeActive}
+						compoundModeActive={compoundModeActive}
+						setSelectedElements={setSelectedElements}
 					/>
 				</div>
 				<PeriodicTable
+					setSelectedElements={setSelectedElements}
+					selectedElements={selectedElements}
 					setSelectedElement={setSelectedElement}
-					buildModeActive={buildModeActive}
+					compoundModeActive={compoundModeActive}
 				/>
 			</main>
 		</div>

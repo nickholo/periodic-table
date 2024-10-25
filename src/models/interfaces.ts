@@ -32,16 +32,29 @@ export interface Compound {
 
 export interface PeriodicTableProps {
 	setSelectedElement: (element: ChemElement) => void;
-	buildModeActive: boolean;
+	setSelectedElements: (elements: string[]) => void;
+	selectedElements: string[];
+	compoundModeActive: boolean;
 }
 
 export interface DisplayCardProps {
 	element: ChemElement;
 	compound: Compound;
-	buildModeActive: boolean;
+	compoundModeActive: boolean;
 }
 
 export interface ButtonProps {
-	toggleBuildMode: () => void;
-	buildModeActive: boolean;
+	setCompoundModeActive: React.Dispatch<React.SetStateAction<boolean>>;
+	compoundModeActive: boolean;
+	setSelectedElements: (elements: string[]) => void;
+}
+
+export interface ElementBoxProps {
+	element: ChemElement;
+	handleClick: () => void;
+}
+
+export interface EquationDisplayProps {
+	selectedElements: string[];
+	compoundModeActive: boolean;
 }

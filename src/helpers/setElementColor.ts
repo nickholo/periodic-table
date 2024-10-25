@@ -1,4 +1,4 @@
-import { ChemElement } from '../../models/interfaces';
+import { ChemElement } from '../models/interfaces';
 
 function SetElementColor(element: ChemElement): string {
 	let color = '';

@@ -1,4 +1,4 @@
-import { ChemElement } from '../../models/interfaces';
+import { ChemElement } from '../models/interfaces';
 
 class ChemistryService {
 	public static async fetchCompoundInfo(
@@ -20,3 +20,5 @@ class ChemistryService {
 		}
 	}
 }
+
+export default ChemistryService;

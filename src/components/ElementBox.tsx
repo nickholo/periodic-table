@@ -1,13 +1,13 @@
-import { ChemElement } from '../models/interfaces';
-import SetElementColor from '../assets/helpers/setElementColor';
+import { ElementBoxProps } from '../models/interfaces';
+import SetElementColor from '../helpers/setElementColor';
 
-const ElementBox = (element: ChemElement & { onClick: () => void }) => {
+const ElementBox = ({ element, handleClick }: ElementBoxProps) => {
 	return (
 		<div
-			className={`p-2 my-4 w-16 h-16 flex flex-col justify-center items-center ${SetElementColor(
+			className={`p-2  w-16 h-16 flex flex-col justify-center items-center ${SetElementColor(
 				element
 			)}`}
-			onClick={element.onClick}>
+			onClick={handleClick}>
 			{
 				<h2 className='text-xl font-bold'>{element.symbol}</h2>
 				/*<p className='w-max h-max'>{element.name}</p>

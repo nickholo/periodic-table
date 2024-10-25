@@ -2,7 +2,21 @@ import { ElementBox } from './index';
 import { ChemElement, PeriodicTableProps } from '../models/interfaces';
 import { chemElementsList } from '../data/elementData';
 
-const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
+const PeriodicTable = ({
+	setSelectedElement,
+	setSelectedElements,
+	selectedElements,
+	compoundModeActive,
+}: PeriodicTableProps) => {
+	const handleElementClick = (element: ChemElement) => {
+		if (compoundModeActive) {
+			setSelectedElements([...selectedElements, element.symbol]);
+			console.log(selectedElements);
+		} else {
+			setSelectedElement(element);
+		}
+	};
+
 	return (
 		<div
 			id='parent'
@@ -11,9 +25,10 @@ const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 				id='div1'
 				className='h-max w-max col-start-1 col-end-2'>
 				<ElementBox
+					element={chemElementsList[0]}
 					key={chemElementsList[0].atomicNumber}
 					{...chemElementsList[0]}
-					onClick={() => setSelectedElement(chemElementsList[0])}
+					handleClick={() => handleElementClick(chemElementsList[0])}
 				/>
 			</div>
 			<div
@@ -21,8 +36,8 @@ const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 				className='h-max w-max col-start-[18] col-end-[19]'>
 				<ElementBox
 					key={chemElementsList[1].atomicNumber}
-					{...chemElementsList[1]}
-					onClick={() => setSelectedElement(chemElementsList[1])}
+					element={chemElementsList[1]}
+					handleClick={() => handleElementClick(chemElementsList[1])}
 				/>
 			</div>
 			<div
@@ -31,8 +46,8 @@ const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 				{chemElementsList.slice(2, 4).map((element: ChemElement) => (
 					<ElementBox
 						key={element.atomicNumber}
-						{...element}
-						onClick={() => setSelectedElement(element)}
+						element={element}
+						handleClick={() => handleElementClick(element)}
 					/>
 				))}
 			</div>
@@ -42,8 +57,9 @@ const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 				{chemElementsList.slice(4, 10).map((element: ChemElement) => (
 					<ElementBox
 						key={element.atomicNumber}
+						element={element}
 						{...element}
-						onClick={() => setSelectedElement(element)}
+						handleClick={() => handleElementClick(element)}
 					/>
 				))}
 			</div>
@@ -53,8 +69,8 @@ const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 				{chemElementsList.slice(10, 12).map((element: ChemElement) => (
 					<ElementBox
 						key={element.atomicNumber}
-						{...element}
-						onClick={() => setSelectedElement(element)}
+						element={element}
+						handleClick={() => handleElementClick(element)}
 					/>
 				))}
 			</div>
@@ -64,8 +80,8 @@ const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 				{chemElementsList.slice(12, 18).map((element: ChemElement) => (
 					<ElementBox
 						key={element.atomicNumber}
-						{...element}
-						onClick={() => setSelectedElement(element)}
+						element={element}
+						handleClick={() => handleElementClick(element)}
 					/>
 				))}
 			</div>
@@ -75,8 +91,8 @@ const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 				{chemElementsList.slice(18, 36).map((element: ChemElement) => (
 					<ElementBox
 						key={element.atomicNumber}
-						{...element}
-						onClick={() => setSelectedElement(element)}
+						element={element}
+						handleClick={() => handleElementClick(element)}
 					/>
 				))}
 			</div>
@@ -86,8 +102,8 @@ const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 				{chemElementsList.slice(36, 54).map((element: ChemElement) => (
 					<ElementBox
 						key={element.atomicNumber}
-						{...element}
-						onClick={() => setSelectedElement(element)}
+						element={element}
+						handleClick={() => handleElementClick(element)}
 					/>
 				))}
 			</div>
@@ -97,8 +113,8 @@ const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 				{chemElementsList.slice(54, 56).map((element: ChemElement) => (
 					<ElementBox
 						key={element.atomicNumber}
-						{...element}
-						onClick={() => setSelectedElement(element)}
+						element={element}
+						handleClick={() => handleElementClick(element)}
 					/>
 				))}
 			</div>
@@ -108,8 +124,8 @@ const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 				{chemElementsList.slice(71, 86).map((element: ChemElement) => (
 					<ElementBox
 						key={element.atomicNumber}
-						{...element}
-						onClick={() => setSelectedElement(element)}
+						element={element}
+						handleClick={() => handleElementClick(element)}
 					/>
 				))}
 			</div>
@@ -119,8 +135,8 @@ const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 				{chemElementsList.slice(86, 88).map((element: ChemElement) => (
 					<ElementBox
 						key={element.atomicNumber}
-						{...element}
-						onClick={() => setSelectedElement(element)}
+						element={element}
+						handleClick={() => handleElementClick(element)}
 					/>
 				))}
 			</div>
@@ -132,30 +148,30 @@ const PeriodicTable = ({ setSelectedElement }: PeriodicTableProps) => {
 					.map((element: ChemElement) => (
 						<ElementBox
 							key={element.atomicNumber}
-							{...element}
-							onClick={() => setSelectedElement(element)}
+							element={element}
+							handleClick={() => handleElementClick(element)}
 						/>
 					))}
 			</div>
 			<div
 				id='div13'
-				className='h-max w-max flex col-start-4 col-end-[19]'>
+				className='h-max w-max flex col-start-4 col-end-[19] row-start-9'>
 				{chemElementsList.slice(56, 71).map((element: ChemElement) => (
 					<ElementBox
 						key={element.atomicNumber}
-						{...element}
-						onClick={() => setSelectedElement(element)}
+						element={element}
+						handleClick={() => handleElementClick(element)}
 					/>
 				))}
 			</div>
 			<div
 				id='div14'
-				className='h-max w-max flex col-start-4 col-end-[19]'>
+				className='h-max w-max flex col-start-4 col-end-[19] row-start-10'>
 				{chemElementsList.slice(88, 103).map((element: ChemElement) => (
 					<ElementBox
 						key={element.atomicNumber}
-						{...element}
-						onClick={() => setSelectedElement(element)}
+						element={element}
+						handleClick={() => handleElementClick(element)}
 					/>
 				))}
 			</div>

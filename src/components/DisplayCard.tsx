@@ -4,11 +4,11 @@ import { DisplayCardProps } from '../models/interfaces';
 const DisplayCard = ({
 	element,
 	compound,
-	buildModeActive,
+	compoundModeActive,
 }: DisplayCardProps) => {
-	if (buildModeActive) {
+	if (compoundModeActive) {
 		return <CompoundInfo compound={compound} />;
-	} else if (!buildModeActive) {
+	} else if (!compoundModeActive) {
 		return <ElementInfo element={element} />;
 	} else {
 		return null;
